@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<title>Registration Form</title>
+		
+	</head>
+
+	<body>
+		<font face="calibri">
+			<h1>Registration Form</h1>
+			<div>
+				<p>First Name: * <input type="text" name="first_name"></p>
+			</div>
+			<div>
+				<p>Last Name: * <input type="text" name="last_name"></p>
+			</div>
+			<div>
+				<p>Email Address: * <input type="text" name="email"></p>
+			</div>
+			<div>
+				<p>Password: * <input type="password" name="password"></p>
+			</div>
+			<div>
+				<p>Confirm Password: * <input type="password" name="c_password"></p>
+			</div>
+			<div>
+				<p>Birthday: <input type="date" name="dob"></p>
+			</div>
+			<div>
+				<p>Gender Identity:</p>
+				<input type="radio" name="font" value="normal" id="male">
+				<label for="male">Male</label>
+				<input type="radio" name="font" value="normal" id="female">
+				<label for="female">Female</label>
+				<input type="radio" name="font" value="normal" id="nonbin">
+				<label for="nonbin">Non-Binary</label>
+				<input type="radio" name="font" value="normal" id="nonans">
+				<label for="nonans">I prefer not to answer</label>		
+			</div>
+			<div>
+				<p>A short description about myself:</p>
+				<textarea name="comment" cols="60" rows="5"></textarea>
+			</div>
+			<div>
+				<p>
+					Favorite Language: 
+					<select name="Language">
+						<option>JavaScript</option>
+						<option>Java</option>
+						<option>Python</option>
+						<option>C#</option>
+						<option>C++</option>
+						<option>R</option>
+					</select>
+				</p>
+			</div>
+			<div>
+				<input type="checkbox" name="accept" id="accept" checked>
+				<label for="accept">Yes, I would like to receive periodic email updates</label>
+			</div>
+			<br>
+			<div>
+				<input type="submit" value="Create Account" >
+				<p>* Indicates a required field</p>
+			</div>
+		</font>
+	</body>
+</html>
