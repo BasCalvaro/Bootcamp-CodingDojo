@@ -1,72 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" href="style.css" />
 		<title>NinjaMan</title>
-		<style type = "text/css">
-			*{
-				margin:0;
-				margin-bottom: -2px;
-				padding:0;
-			}
-			.wall{
-				background-color: blue;
-				height: 40px;
-				width: 40px;
-				display: inline-block;
-			}
-			.sushi{
-				background-color: black;
-				height: 40px;
-				width: 40px;
-				display: inline-block;
-				background-image: url('ninjaman/sushi.png');
-				background-size: contain;
-			}
-			.onigiri{
-				background-color: black;
-				height: 40px;
-				width: 40px;
-				display: inline-block;
-				background-image: url('ninjaman/onigiri.png');
-				background-size: contain;
-			}
-			.blank{
-				background-color: black;
-				height: 40px;
-				width: 40px;
-				display: inline-block;
-			}
-			.gameover{
-				background-color: black;
-				height: 800px;
-				width: 450px;
-				display: inline-block;
-				background-image: url('ninjaman/gameover.jpg');
-				background-size: contain;
-			}
-			#ninjaman{
-				background-color: black;
-				height: 40px;
-				width: 40px;
-				display: inline-block;
-				background-image: url('ninjaman/ninja.gif');
-				background-size: contain;
-				position: absolute;
-				left: 40px;
-				top: 40px;
-			}
-			#pinky{
-				background-color: black;
-				height: 40px;
-				width: 40px;
-				display: inline-block;
-				background-image: url('ninjaman/pinky.gif');
-				background-size: contain;
-				position: absolute;
-				left: 40px;
-				top: 40px;
-			}
-		</style>
+		<style></style>
 	</head>
     <body>
 		<div id='world'></div>
@@ -132,7 +69,12 @@
 				}
 				output += "</div>"
 			}			
-				document.getElementById('world').innerHTML = output;			
+			document.getElementById('world').innerHTML = output;
+
+			if(world == [99]){
+				output = "<div id ='gameover'></div>";
+				document.getElementById('body').innerHTML = output;
+			}
 		}
 		drawworld()
 		
@@ -223,7 +165,7 @@
 			if(ninjaman.y == pinky.y & ninjaman.x == pinky.x){
 				life--;
 				if (life == 0){
-					gamover()
+					gameover()
 				}
 				else{
 					ninjaman = {
@@ -241,11 +183,10 @@
 			}*/
 		}
 
-		function gamover(){
-			//world = [99];
+		function gameover(){
+			world = [99];
 			drawworld()
 		}
-
 
     </script>
 </html>
