@@ -17,7 +17,6 @@
 		var row;
 		var column;
 		var temp;
-
 		function worldCreation() {
 			row = Math.floor(Math.random() * 10) + 5;
 			column = Math.floor(Math.random() * 10) + 5;
@@ -55,9 +54,7 @@
 			1: "wall",
 			2: "sushi",
 			3: "onigiri",
-			99: "gameover",
 		};
-
 		function drawworld() {
 			output = "";
 			for (var row = 0; row < world.length; row++) {
@@ -87,7 +84,6 @@
 		};
 
 		var score = 0;
-
 		document.onkeydown = function (e) {
 			if (e.keyCode == 37) {
 				if (world[ninjaman.y][ninjaman.x - 1] != 1) {
@@ -125,8 +121,6 @@
 		};
 
 		var life = 3;
-		var oneup = 1;
-
 		function lifecount() {
 			if ((ninjaman.y == pinky.y) & (ninjaman.x == pinky.x)) {
 				life--;
@@ -140,7 +134,6 @@
 					};
 					drawNinjaman();
 				}
-				console.log(life);
 			}
 			/*if(score % (oneup*100) == 0){
 				life++;
@@ -153,35 +146,29 @@
 			const directionX = ninjaman.x - pinky.x;
 			const directionY = ninjaman.y - pinky.y;
 
-			let normalizeddirectionX = 0;
-			let normalizeddirectionY = 0;
+			let newX = 0;
+			let newY = 0;
 
 			if (Math.abs(directionX) > Math.abs(directionY)) {
-				if (
-					(world[pinky.y][pinky.x + Math.sign(directionX)] !== 1)
-				) {
-					normalizeddirectionX = Math.sign(directionX);
-				} 
-				else if(
-					(world[pinky.y + Math.sign(directionY)][pinky.x] !== 1) 
-				){
-					normalizeddirectionY = Math.sign(directionY);
+				if (world[pinky.y][pinky.x + Math.sign(directionX)] !== 1) {
+					newX = Math.sign(directionX);
+				} //
+				else if (world[pinky.y + Math.sign(directionY)][pinky.x] !== 1) {
+					newY = Math.sign(directionY);
 				}
-			} 
+			} //
 			else {
-				if (
-					(world[pinky.y + Math.sign(directionY)][pinky.x] !== 1) 
-				) {
-					normalizeddirectionY = Math.sign(directionY);
-				} 
-				else if (
-					(world[pinky.y][pinky.x +Math.sign(directionX)] !== 1) 
-				){
-					normalizeddirectionX = Math.sign(directionX);
+				if (world[pinky.y + Math.sign(directionY)][pinky.x] !== 1) {
+					newY = Math.sign(directionY);
+				} //
+				else if (world[pinky.y][pinky.x + Math.sign(directionX)] !== 1) {
+					newX = Math.sign(directionX);
 				}
 			}
-			pinky.x += normalizeddirectionX;
-			pinky.y += normalizeddirectionY;
+			pinky.x += newX;
+			pinky.y += newY;
+
+			lifecount();
 		}
 
 		function drawpinky() {
@@ -190,18 +177,38 @@
 		}
 		drawpinky();
 
-		function checkmap(){
+		var comp = world.length * world[0].length;
+
+		function checkmap() {
+			var check = 0;
 			for (var row = 0; row < world.length; row++) {
 				for (var x = 0; x < world[row].length; x++) {
-					if(world[row][x]==2 || world[row][x]==3){
-						break;
-						
+					if (world[row][x] == 0 || world[row][x] == 1) {
+						check++;
 					}
 				}
 			}
+			if (check == comp) {
+				victory();
+			}
 		}
 
-		
+		function victory() {
+			var parent = document.body;
+			var delworld = document.getElementById("world");
+			var delninja = document.getElementById("ninjaman");
+			var delenemy = document.getElementById("pinky");
+
+			parent.removeChild(delworld);
+			parent.removeChild(delninja);
+			parent.removeChild(delenemy);
+
+			var victoryid = document.createElement("div");
+			victoryid.id = "victory";
+
+			document.body.appendChild(victoryid);
+		}
+
 		function eraseWorld() {
 			var parent = document.body;
 
@@ -220,12 +227,11 @@
 		}
 
 		function gameLoop() {
-			checkmap();
 			enemyMovement();
 			drawpinky();
 		}
-		//gameLoop();
-		setInterval(gameLoop, 420);
+		setInterval(gameLoop, 500);
+		setInterval(checkmap, 100);
 
 		function gameover() {
 			eraseWorld();
