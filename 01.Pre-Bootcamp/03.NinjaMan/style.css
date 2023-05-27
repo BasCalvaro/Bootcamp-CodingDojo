@@ -1,6 +1,7 @@
 * {
 	margin: 0;
 	margin-bottom: -2px;
+	background: black;
 }
 .wall {
 	background-color: blue;
