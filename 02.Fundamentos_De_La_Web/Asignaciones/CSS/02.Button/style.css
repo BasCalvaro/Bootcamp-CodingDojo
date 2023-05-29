@@ -1,0 +1,37 @@
+*{
+    margin: 10px;
+}
+.search{
+    color: darkcyan;
+    border: 2px solid darkcyan;
+    border-radius: 25px;
+    font-weight: bolder;
+    font-family: Calibri;
+    font-size: larger;
+    height: 40px;
+    width: 200px;
+    text-align: center;
+}
+
+.plus{
+    color: white;
+    background-color: turquoise;
+    font-size: xx-large;
+    font-weight: 1000;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+}
+
+.account{
+    border: 2px solid black;
+    font-size: larger;
+    color: white;
+    font-family: Arial;
+    background-color: dodgerblue;
+    height: 40px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 10px 5px 5px black;;
+}
