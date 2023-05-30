@@ -16,7 +16,7 @@
 				top: 620,
 			};
 
-			var enemy = [
+			var enemies = [
 				{ left: 350, top: 200 },
 				{ left: 450, top: 250 },
 				{ left: 60, top: 50 },
@@ -35,6 +35,20 @@
 			}
 			drawplayer();
 
+			function generateEnemies() {
+				output = "";
+				for (var i = 0; i < enemies.length; i++) {
+					output +=
+						"<div class='enemy' style='left:" +
+						enemies[i].left +
+						"px; top:" +
+						enemies[i].top +
+						"px'></div>";
+				}
+				document.getElementById("enemies").innerHTML = output;
+			}
+			generateEnemies();
+
 			document.onkeydown = function (e) {
 				if (e.keyCode == 37 && player.left > 10) {
 					player.left = player.left - 10;
@@ -50,20 +64,6 @@
 				}
 				drawplayer();
 			};
-
-			function generateEnemy() {
-				output = "";
-				for (var i = 0; i < enemy.length; i++) {
-					output +=
-						"<div class='enemy' style='left:" +
-						enemy[i].left +
-						"px; top:" +
-						enemy[i].top +
-						"px'></div>";
-				}
-				document.getElementById("enemies").innerHTML = output;
-			}
-			generateEnemy();
 		</script>
 	</body>
 </html>

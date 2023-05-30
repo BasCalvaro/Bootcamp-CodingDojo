@@ -2,7 +2,7 @@
 	background-image: url("master/Space_2.jpg");
 	width: 900px;
 	height: 700px;
-    background-size: contain;
+    background-size: cover;
 }
 .player {
 	position: absolute;

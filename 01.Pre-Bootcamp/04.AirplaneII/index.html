@@ -8,6 +8,7 @@
 		<div id="ocean">
 			<div id="players"></div>
 			<div id="enemies"></div>
+			<div id="missiles"></div>
 		</div>
 
 		<script type="text/javascript">
@@ -17,11 +18,11 @@
 			};
 
 			var enemy = [
-				{ left: 350, top: 200 },
-				{ left: 450, top: 250 },
-				{ left: 60, top: 50 },
+				{ left: 350, top: 280 },
+				{ left: 450, top: 220 },
+				{ left: 60, top: 40 },
 				{ left: 130, top: 100 },
-				{ left: 720, top: 100 },
+				{ left: 720, top: 160 },
 			];
 
 			function drawplayer() {
@@ -33,23 +34,97 @@
 					"px'></div>";
 				document.getElementById("players").innerHTML = content;
 			}
-			drawplayer();
+
+			var missile = [];
 
 			document.onkeydown = function (e) {
 				if (e.keyCode == 37 && player.left > 10) {
-					player.left = player.left - 10;
+					player.left -= 10;
 				}
 				if (e.keyCode == 39 && player.left < 830) {
-					player.left = player.left + 10;
+					player.left += 10;
 				}
 				if (e.keyCode == 38 && player.top > 420) {
-					player.top = player.top - 10;
+					player.top -= 10;
 				}
 				if (e.keyCode == 40 && player.top < 630) {
-					player.top = player.top + 10;
+					player.top += 10;
+				}
+				if (e.keyCode == 32) {
+					missile.push(
+						{
+							left: player.left + 65,
+							top: player.top + 10,
+						},
+						{
+							left: player.left - 5,
+							top: player.top + 10,
+						}
+					);
+					drawMissiles();
 				}
 				drawplayer();
 			};
+
+			// document.onkeydown = function (f) {
+			// 	if (f.keyCode == 37 && f.keyCode == 32 && player.left > 10) {
+			// 		player.left -= 10;
+			// 		missile.push(
+			// 			{
+			// 				left: player.left + 65,
+			// 				top: player.top + 10,
+			// 			},
+			// 			{
+			// 				left: player.left-5,
+			// 				top: player.top +10,
+			// 			}
+			// 		);
+			// 		drawMissiles();
+			// 	}
+			// 	if (f.keyCode == 39 && f.keyCode == 32 && player.left < 830) {
+			// 		player.left += 10;
+			// 		missile.push(
+			// 			{
+			// 				left: player.left + 65,
+			// 				top: player.top + 10,
+			// 			},
+			// 			{
+			// 				left: player.left-5,
+			// 				top: player.top +10,
+			// 			}
+			// 		);
+			// 		drawMissiles();
+			// 	}
+			// 	if (f.keyCode == 38 && f.keyCode == 32 && player.top > 420) {
+			// 		player.top -= 10;
+			// 		missile.push(
+			// 			{
+			// 				left: player.left + 65,
+			// 				top: player.top + 10,
+			// 			},
+			// 			{
+			// 				left: player.left-5,
+			// 				top: player.top +10,
+			// 			}
+			// 		);
+			// 		drawMissiles();
+			// 	}
+			// 	if (f.keyCode == 40 && f.keyCode == 32 && player.top < 630) {
+			// 		player.top += 10;
+			// 		missile.push(
+			// 			{
+			// 				left: player.left + 65,
+			// 				top: player.top + 10,
+			// 			},
+			// 			{
+			// 				left: player.left-5,
+			// 				top: player.top +10,
+			// 			}
+			// 		);
+			// 		drawMissiles();
+			// 	}
+			// 	drawplayer();
+			// };
 
 			function generateEnemy() {
 				output = "";
@@ -63,23 +138,58 @@
 				}
 				document.getElementById("enemies").innerHTML = output;
 			}
-			generateEnemy();
-
-			// function drawEnemy() {
-			// 	for (var i = 0; i < enemy.length; i++) {
-			// 		document.getElementById("enemy").style.top = enemy[i].top + "px";
-			// 		document.getElementById("enemy").style.left = enemy[i].left + "px";
-			// 	}
-			// }
-			// drawEnemy();
 
 			function moveEnemy() {
 				for (var i = 0; i < enemy.length; i++) {
-					enemy[i].top += 10;
+					enemy[i].top += 1;
+					if (enemy[i].top == 630) {
+						enemy[i].top = 0;
+						enemy[i].left = Math.floor(Math.random() * 800) + 10;
+					}
 				}
-				drawEnemy();
 			}
-			setInterval(moveEnemy, 100);
+
+			function drawMissiles() {
+				moutput = "";
+				for (var i = 0; i < missile.length; i++) {
+					moutput +=
+						"<div class='missile' style='left:" +
+						missile[i].left +
+						"px; top:" +
+						missile[i].top +
+						"px'></div>";
+				}
+				document.getElementById("missiles").innerHTML = moutput;
+			}
+
+			function moveMissiles() {
+				for (var i = 0; i < missile.length; i++) {
+					missile[i].top -= 5;
+					for (var j = 0; j < enemy.length; j++) {
+						if (
+							missile[i].top <= enemy[j].top + 75 &&
+							missile[i].left >= enemy[j].left &&
+							missile[i].left <= enemy[j].left + 70
+						) {
+							missile.splice(i, 1);
+							enemy.splice(j, 1);
+							break;
+						}
+						}
+					if (missile[i].top == 10) {
+						missile.splice(i, 1);
+					}
+				}
+			}
+
+			function gameLoop() {
+				drawplayer();
+				moveEnemy();
+				generateEnemy();
+				moveMissiles();
+				drawMissiles();
+			}
+			setInterval(gameLoop, 10);
 		</script>
 	</body>
 </html>
