@@ -10,6 +10,11 @@ img.octocat {
     font-size: x-large;
 }
 
+p{
+    font-weight: 400;
+    font-size: medium;
+}
+
 .frow, .srow, .trow{
     display: flex;
     align-items: center;
