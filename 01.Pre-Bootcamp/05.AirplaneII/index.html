@@ -36,6 +36,7 @@
 			}
 
 			var missile = [];
+			var intercalmissile = true;
 
 			document.onkeydown = function (e) {
 				if (e.keyCode == 37 && player.left > 10) {
@@ -51,80 +52,23 @@
 					player.top += 10;
 				}
 				if (e.keyCode == 32) {
-					missile.push(
-						{
+					if (intercalmissile) {
+						missile.push({
 							left: player.left + 65,
 							top: player.top + 10,
-						},
-						{
+						});
+					} //
+					else {
+						missile.push({
 							left: player.left - 5,
 							top: player.top + 10,
-						}
-					);
+						});
+					}
+					intercalmissile = !intercalmissile;
 					drawMissiles();
 				}
 				drawplayer();
 			};
-
-			// document.onkeydown = function (f) {
-			// 	if (f.keyCode == 37 && f.keyCode == 32 && player.left > 10) {
-			// 		player.left -= 10;
-			// 		missile.push(
-			// 			{
-			// 				left: player.left + 65,
-			// 				top: player.top + 10,
-			// 			},
-			// 			{
-			// 				left: player.left-5,
-			// 				top: player.top +10,
-			// 			}
-			// 		);
-			// 		drawMissiles();
-			// 	}
-			// 	if (f.keyCode == 39 && f.keyCode == 32 && player.left < 830) {
-			// 		player.left += 10;
-			// 		missile.push(
-			// 			{
-			// 				left: player.left + 65,
-			// 				top: player.top + 10,
-			// 			},
-			// 			{
-			// 				left: player.left-5,
-			// 				top: player.top +10,
-			// 			}
-			// 		);
-			// 		drawMissiles();
-			// 	}
-			// 	if (f.keyCode == 38 && f.keyCode == 32 && player.top > 420) {
-			// 		player.top -= 10;
-			// 		missile.push(
-			// 			{
-			// 				left: player.left + 65,
-			// 				top: player.top + 10,
-			// 			},
-			// 			{
-			// 				left: player.left-5,
-			// 				top: player.top +10,
-			// 			}
-			// 		);
-			// 		drawMissiles();
-			// 	}
-			// 	if (f.keyCode == 40 && f.keyCode == 32 && player.top < 630) {
-			// 		player.top += 10;
-			// 		missile.push(
-			// 			{
-			// 				left: player.left + 65,
-			// 				top: player.top + 10,
-			// 			},
-			// 			{
-			// 				left: player.left-5,
-			// 				top: player.top +10,
-			// 			}
-			// 		);
-			// 		drawMissiles();
-			// 	}
-			// 	drawplayer();
-			// };
 
 			function generateEnemy() {
 				output = "";
@@ -175,7 +119,7 @@
 							enemy.splice(j, 1);
 							break;
 						}
-						}
+					}
 					if (missile[i].top == 10) {
 						missile.splice(i, 1);
 					}
