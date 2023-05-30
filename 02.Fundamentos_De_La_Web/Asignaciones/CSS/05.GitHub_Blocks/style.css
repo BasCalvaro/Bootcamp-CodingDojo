@@ -1,0 +1,32 @@
+img.octocat {
+    height: 200px;
+}
+
+.container{
+    width: 800px;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: x-large;
+}
+
+.frow, .srow, .trow{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;    
+    width: 800px;
+    height: 250px;
+    margin: 20px;
+}
+
+.frow{
+    background-color: aquamarine;
+}
+
+.srow{
+    background-color: black;
+}
+
+.trow{
+    background-color: aliceblue;
+}
