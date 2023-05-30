@@ -64,6 +64,22 @@
 				document.getElementById("enemies").innerHTML = output;
 			}
 			generateEnemy();
+
+			// function drawEnemy() {
+			// 	for (var i = 0; i < enemy.length; i++) {
+			// 		document.getElementById("enemy").style.top = enemy[i].top + "px";
+			// 		document.getElementById("enemy").style.left = enemy[i].left + "px";
+			// 	}
+			// }
+			// drawEnemy();
+
+			function moveEnemy() {
+				for (var i = 0; i < enemy.length; i++) {
+					enemy[i].top += 10;
+				}
+				drawEnemy();
+			}
+			setInterval(moveEnemy, 100);
 		</script>
 	</body>
 </html>

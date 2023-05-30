@@ -1,0 +1,20 @@
+#ocean {
+	background-image: url("master/Space_2.jpg");
+	width: 900px;
+	height: 700px;
+    background-size: contain;
+}
+.player {
+	position: absolute;
+	width: 70px;
+	height: 75px;
+	background-image: url("master/player.png");
+	background-size: contain;
+}
+.enemy {
+	position: absolute;
+	width: 70px;
+	height: 75px;
+	background-image: url("master/enemy.png");
+	background-size: contain;
+}
