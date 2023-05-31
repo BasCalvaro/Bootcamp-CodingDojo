@@ -1,0 +1,32 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.col,
+.col-2,
+.col-3 {
+	background-color: aquamarine;
+	margin: 10px 5px;
+	height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row {
+	display: flex;
+	align-items: center;
+}
+
+.col {
+	flex: 1;
+}
+
+.col-2 {
+	flex: 2;
+}
+
+.col-3 {
+	flex: 3;
+}
