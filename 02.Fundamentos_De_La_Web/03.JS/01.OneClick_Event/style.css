@@ -1,0 +1,49 @@
+*{
+    margin: 0 20px 20px 20px;
+    padding: 0;
+    font-family: Roboto;
+}
+
+.bu-1 {
+	border: 1px solid black;
+	box-shadow: 2px 2px black;
+    padding: 3px;
+	background-color:dodgerblue;
+    color: aliceblue;
+}
+
+.bu-2 {
+	border: 1px solid black;
+	box-shadow: 2px 2px black;
+    padding: 3px;
+	background-color:goldenrod;
+}
+
+.bu-3{
+    border: 1px solid black;
+	box-shadow: 2px 2px black;
+    padding: 3px;
+	background-color:darkseagreen;
+}
+
+.top{
+    background-color: darkgray;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+}
+
+.col-1, .col-2{
+    display: block;
+}
+
+.row{
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    
+}
