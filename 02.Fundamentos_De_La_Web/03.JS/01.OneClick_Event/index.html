@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,43 +9,65 @@
     <title>On Click Event</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="top">
-        <h1>Dojonary</h1>        
-        <input type="text" placeholder="Search">
-        <button class="bu-1">Login</button>
+    <div class="container">
+
+        <div class="top">
+            <h1>Dojonary</h1>
+            <input class="SearchBar" type="text" placeholder="Search">
+            <button class="bu-1" onclick="logoff(this)">Login</button>
+        </div>
+
+        <div class="general">
+            <div class="col-1">
+                <div class="row">
+                    <div class="incol-1">
+                        <h2>ninja</h2>
+                        <p style="font-style: italic;">noun</p>
+                        <p>Plural: ninjas</p>
+                        <button class="bu-2" onclick="likes(this)">
+                            13 likes
+                        </button>                        
+                    </div>
+                    <div class="incol-2">
+                        <p>
+                            A practitioner skilled in the <a href="#">Japanese</a> art of <a href="#">Ninjutsu</a>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="incol-1">
+                        <h2>ninja</h2>
+                        <p style="font-style: italic;">noun</p>
+                        <p>Plural: ninjas</p>
+                        <button class="bu-2" onclick="likes(this)">37 likes</button>
+                    </div>
+                    <div class="incol-2">
+                        <p>
+                            A <a href="#">programmer</a> who breaks down problems with <a href="#">Zen</a>-like focus
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-2">
+                <div class="subrow">
+                    <div>
+                        <h2>Dojonary is defined by YOU</h2>
+                    </div>
+                    <br>
+                    <div>
+                        <button class="bu-3" onclick="hide(this)">Add Definition</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="container">
-        <div class="col-1">
-            <div class="row">
-                <div class="col-1">
-                    <h2>ninja</h2>
-                    <p style="font-style: italic;">noun</p>
-                    <p>Plural: ninjas</p>
-                    <button class="bu-2">13 likes</button>
-                </div>
-                <div class="col-2">
-                    <p>A practitioner skilled in the Japanese art of Ninjutsu</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-1">
-                    <h2>ninja</h2>
-                    <p>Plural: ninjas</p>
-                </div>
-                <div class="col-2">
-                    <p>A practitioner skilled in the Japanese art of Ninjutsu</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-2">
-            <div class="row">
-                <h2>Dojonary is defined by YOU</h2>
-                <button class="bu-3">Add Definition</button>
-            </div>
-        </div>
-    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>
