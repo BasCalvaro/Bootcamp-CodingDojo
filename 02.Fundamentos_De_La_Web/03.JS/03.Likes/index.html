@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>On Click Event</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <h1>Network</h1>
+        </div>
+
+        <div>
+            <h1 style="text-align: center">Your Feed</h1>
+            <br>
+        </div>
+
+        <div class="general">
+            <div class="col-1">
+                <div class="row">
+                    <div class="incol-1">
+                        <img class="pimg" src="icons/user-circle.png" alt="Default avatar">
+                    </div>
+                    <div class="incol-1">
+                        <a href="#">Add an avatar</a>
+                    </div>
+                    <div class="incol-1">
+                        <h2>James Doe</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-2">
+                <div class="subrow">
+                    <div class="incol-2">
+                        <div class="name">
+                            <h2>Neil M</h2>
+                        </div>
+                        <div id="like-1" class="likes">
+                            <p>9 like(s)</p>
+                            <button class="bu-2" onclick="likes()">Like</button>
+                        </div>
+                    </div>
+                    <div class="incol-2">
+                        <div class="text">
+                            <p>
+                                I just set up this new discord bot, let me know what you all
+                                think. <a href="#">link</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="subrow">
+                    <div class="incol-2">
+                        <div class="name">
+                            <h2>Nichole K</h2>
+                        </div>
+                        <div id="like-2" class="likes">
+                            <p>12 like(s)</p>
+                            <button class="bu-2" onclick="likes()">Like</button>
+                        </div>
+                    </div>
+                    <div class="incol-2">
+                        <div class="text">
+                            <p>
+                                Just finished my <a href="#">next comic</a>, check it out.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="subrow">
+                    <div class="incol-2">
+                        <div class="name">
+                            <h2>Jim R</h2>
+                        </div>
+                        <div id="like-3"  class="likes">
+                            <p>9 like(s)</p>
+                            <button class="bu-2" onclick="likes()">Like</button>
+                        </div>
+                    </div>
+                    <div class="incol-2">
+                        <div class="text">
+                            <p>
+                                I can't stop listening to the <a href="#">new album</a>.
+                                Who else is liking it?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
