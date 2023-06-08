@@ -1,0 +1,148 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-family: Roboto;
+	/* outline: 1px dashed red; */
+}
+
+.nav {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: rgb(32, 32, 32);
+	height: 50px;
+	font-size: small;
+	color: aliceblue;
+	padding: 0 10% 0 10%;
+}
+
+h1 {
+	font-size: x-large;
+	font-weight: normal;
+	margin: 10px 50px 10px 20px;
+}
+
+.nav-title {
+	display: flex;
+	align-items: center;
+}
+
+li,
+.nav-links {
+	display: flex;
+	margin-left: 20px;
+}
+
+a[href="#"] {
+	font-size: medium;
+	color: aliceblue;
+	text-decoration: none;
+}
+
+.active {
+	font-weight: bolder;
+}
+
+button {
+	min-height: 30px;
+	border: 1px solid black;
+	box-shadow: 2px 2px black;
+	background-color: darkcyan;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+}
+
+.personal,
+.education,
+.connection {
+	border: 2px solid silver;
+	margin: 20px;
+}
+
+.top-1,
+.top-2 {
+	height: 60px;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	font-weight: 600;
+	color: aliceblue;
+}
+
+.top-1 {
+	background-color: darkcyan;
+}
+
+.top-2 {
+	background-color: rgb(64, 64, 64);
+}
+
+.p-1,
+.p-2 {
+	margin: 10px 30px 10px 20px;
+}
+
+.p-2 {
+	width: 80px;
+}
+.bottom {
+	margin-top: 15px;
+	height: 50px;
+	border-top: 2px solid silver;
+	display: flex;
+	align-items: center;
+}
+
+.info {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+
+.img-1,
+.pimg {
+	border: 2px solid white;
+	outline: 1px solid silver;
+	border-radius: 50%;
+	background-size: contain;
+}
+
+.img-1 {
+	margin-left: 25px;
+	margin-top: -30px;
+	height: 60px;
+	width: 60px;
+}
+
+.pimg {
+	margin-left: 15px;
+	height: 30px;
+	width: 30px;
+}
+
+.icon {
+	height: 25px;
+	width: 25px;
+	margin-right: 15px;
+}
+
+.img-2,
+.img-3 {
+	background-size: contain;
+	margin-left: 15px;
+	width: 10px;
+	height: auto;
+}
+
+.number {
+	background-color: azure;
+	color: grey;
+	border: 5px solid azure;
+	border-radius: 50%;
+	height: 20px;
+	text-align: center;
+	margin-right: -10px;
+}
