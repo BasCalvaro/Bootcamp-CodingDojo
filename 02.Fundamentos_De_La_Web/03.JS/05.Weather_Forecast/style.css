@@ -1,0 +1,111 @@
+* {
+	padding: 0;
+	margin: 0;
+	/* outline: 1px dashed red; */
+}
+
+#container{	
+	font-family: Roboto;
+	padding: 0 5%;
+}
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color:skyblue;
+	height: 50px;
+	font-size: small;
+	color: aliceblue;
+	margin: 0 0 20px;
+}
+
+.nav-title{
+	font-size: xx-large;
+	margin: 10px;
+}
+
+.nav-links a[href="# 1"] {
+	font-size: large;
+	color: aliceblue;
+	text-decoration: none;
+	margin: 10px;
+}
+
+.general {
+	padding: 0 1%;
+	margin: 0 1%;
+}
+
+.top{
+	margin: 10px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.temp{
+	display: flex;
+	justify-content: space-between;
+	margin: 10px;
+}
+
+.weather{
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0;
+}
+
+.day{
+	background-color:rgb(236, 236, 236);
+	display: block;
+	text-align: center;
+	margin: 0 10px;
+	padding: 10px;
+	min-width: 110px;
+}
+
+.state{
+	margin: 10px;
+	border-radius: 50%;
+	max-width: 80%;
+	height: auto;
+}
+
+.hot, .cold{
+	color:crimson;
+	font-weight: bolder;
+	font-size: x-large;
+}
+
+.hot{
+	color:crimson;
+}
+
+.cold{
+	color:cornflowerblue;
+}
+
+.cookies{
+	position: fixed;
+	bottom: 10px;
+	left: 5%;
+	max-width: 675px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 0;
+	border: 2px solid ;
+	background-color: lightgray;
+}
+
+.icon{
+	margin: 0 10px;
+}
+
+.bu-1{
+	margin: 0 10px;
+	min-width: 80px;
+	min-height: 30px;
+	background-color:cornflowerblue;
+}

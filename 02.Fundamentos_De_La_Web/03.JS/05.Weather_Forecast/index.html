@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script defer src="script.js"></script>
+	<title>Weather Forecast</title>
+</head>
+
+<body>
+	<div id="container">
+		<div class="nav">
+			<h1 class="nav-title">
+				DojoWeather
+			</h1>
+			<div class="nav-links">
+				<a href="# 1" onclick="walert()">Burbank</a>
+				<a href="# 1" onclick="walert()">Chicago</a>
+				<a href="# 1" onclick="walert()">Dallas</a>
+			</div>
+		</div>
+		<hr>
+		<div class="general">
+			<div class="top" style="height: 50px;">
+				<h2>San Jose</h2>
+				<div class="temp">
+					<p>
+						show temperature in
+					</p>
+					&nbsp;&nbsp;
+					<select name="temperature" onchange="tempchange(this)">
+						<option value="°C" selected>°C</option>
+						<option value="°F">°F</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="weather">
+				<div class="day today">
+					<h2>
+						Today
+					</h2>
+					<img class="state" src="assets/some_rain.png" alt="Somerain Icon">
+					<p>
+						some rain
+					</p>
+					<div class="temp">
+						<p class="hot">24°</p>
+						<p class="cold">18°</p>
+					</div>
+				</div>
+
+				<div class="day tomorrow">
+					<h2>
+						Tomorrow
+					</h2>
+					<img class="state" src="assets/some_sun.png" alt="Somerain Icon">
+					<p>
+						some rain
+					</p>
+					<div class="temp">
+						<p class="hot">27°</p>
+						<p class="cold">19°</p>
+					</div>
+				</div>
+
+				<div class="day friday">
+					<h2>
+						Friday
+					</h2>
+					<img class="state" src="assets/some_clouds.png" alt="Somerain Icon">
+					<p>
+						some rain
+					</p>
+					<div class="temp">
+						<p class="hot">21°</p>
+						<p class="cold">16°</p>
+					</div>
+				</div>
+
+				<div class="day today">
+					<h2>
+						Saturday
+					</h2>
+					<img class="state" src="assets/some_sun.png" alt="Somerain Icon">
+					<p>
+						some rain
+					</p>
+					<div class="temp">
+						<p class="hot">26°</p>
+						<p class="cold">21°</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cookies">
+			<img class="icon" src="assets/cookie.png" alt="Cookies Icon" onclick="remove(this)">
+			<div>
+				<h4>Stop! Cookie Time</h4>
+				<p>We use cookies (sadly not the edible ones) to personalize
+					content and ads, to provide social media features and to
+					analyse our traffic. <a href="#">Read More</a>
+				</p>
+			</div>
+			<button class="bu-1" onclick="remove(this)">I accept</button>
+		</div>
+	</div>
+
+</body>
+
+</html>
