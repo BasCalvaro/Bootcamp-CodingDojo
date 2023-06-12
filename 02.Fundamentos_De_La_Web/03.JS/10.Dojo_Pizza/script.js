@@ -25,18 +25,62 @@ var p2 = pizzaOven(
 );
 console.log(p2);
 
-var p3 = pizzaOven(
+var tipoCorteza = [
+	"estilo chicago",
+	"lanzada a mano",
 	"tradicional",
-	"crema",
-	["mozzarella"],
-	["tomate", "espinaca", "cebollas"]
-);
-console.log(p3);
-
-var p4 = pizzaOven(
 	"delgada",
+	"borde de queso"
+];
+
+var tipoSalsa = [
+	"tradicional",
+	"marinara",
 	"bbq",
-	["mozzarella"],
-	["pollo", "tocino"]
-);
-console.log(p4);
+	"crema blanca",
+	"crema de espinacas",
+];
+
+var quesos = ["mozzarella", "cheddar", "feta", "parmesano", "queso vegano"];
+
+var extras = [
+	"pepperoni",
+	"salchicha",
+	"champiñones",
+	"aceitunas",
+	"cebolla",
+	"pollo",
+	"tocino",
+	"carne vegana",
+	"pimenton",
+	"choclo",
+];
+
+function randomRange(max, min) {
+	return Math.floor(Math.random() * max - min) + min;
+}
+
+function randomPick(arr) {
+	var i = Math.floor(arr.length * Math.random());
+	return arr[i];
+}
+
+function randomOven(n) {
+	for (var j = 0; j < n; j++) {
+		var pizza = {};
+		pizza.tipoCorteza = randomPick(tipoCorteza);
+		pizza.tipoSalsa = randomPick(tipoSalsa);
+		pizza.quesos = [];
+		pizza.extras = [];
+
+		for (var i = 0; i < randomRange(3, 1); i++) {
+			pizza.quesos.push(randomPick(quesos));
+		}
+		for (var i = 0; i < randomRange(10, 0); i++) {
+			pizza.extras.push(randomPick(extras));
+		}
+		console.log(pizza);
+	}
+}
+
+randomOven(2);
