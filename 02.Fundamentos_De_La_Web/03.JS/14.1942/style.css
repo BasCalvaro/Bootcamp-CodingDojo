@@ -1,0 +1,28 @@
+#ocean {
+	background-image: url("master/Space_2.jpg");
+	width: 900px;
+	height: 700px;
+    background-size:cover;
+}
+.player {
+	position: absolute;
+	width: 70px;
+	height: 75px;
+	background-image: url("master/player.png");
+	background-size: contain;
+}
+.enemy {
+	position: absolute;
+	width: 70px;
+	height: 75px;
+	background-image: url("master/enemy.png");
+	background-size: contain;
+}
+
+.missile{
+	position: absolute;
+	background-image: url("master/missile_1.png");
+	width: 10px;
+	height: 20px;
+	background-size: contain;
+}
