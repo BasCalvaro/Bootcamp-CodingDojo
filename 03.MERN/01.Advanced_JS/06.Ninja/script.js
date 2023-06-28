@@ -1,4 +1,3 @@
-// parent Vehicle class
 class Ninja {
 	constructor(name, health) {
 		this.name = name;
@@ -19,7 +18,3 @@ class Ninja {
 		this.health += 10;
 	}
 }
-
-const test = new Ninja('Naya', 100)
-test.sayname();
-test.showstats();
