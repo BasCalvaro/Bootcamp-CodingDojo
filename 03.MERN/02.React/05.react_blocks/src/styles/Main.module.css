@@ -1,0 +1,9 @@
+.main {
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+  margin-left: 20px;
+  height: 400px;
+  width: 700px;
+  background-color: #e06666;
+}
