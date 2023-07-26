@@ -1,5 +1,7 @@
 import React from "react";
 import Navbar from "./NavBar";
+import FormWrapper from "./FormWrapper";
+import { UserProvider } from "../contexts/UserContext";
 
 const Wrapper = ({ children }) => {
 	// ---------------------------------------------
@@ -15,11 +17,13 @@ const Wrapper = ({ children }) => {
 	// ---------------------------------------------
 
 	return (
-		<div>
-			<Navbar />
-			{children}
-		</div>
-	);
-};
-
-export default Wrapper;
+      <UserProvider>
+        <div>
+          <Navbar />
+          <FormWrapper />
+        </div>
+      </UserProvider>
+    );
+  };
+  
+  export default Wrapper;

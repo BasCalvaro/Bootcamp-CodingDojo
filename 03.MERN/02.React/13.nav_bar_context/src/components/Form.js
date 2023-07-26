@@ -21,7 +21,7 @@ const Form = () => {
 	// ---------------------------------------------
 
 	return (
-			<div className="d-flex w-50 mb-3">
+			<div className="d-flex w-50 mb-3 align-items-center">
 				<label for="exampleInputEmail1" className="w-100 form-label">
 					Cambiar nombre de usuario:
 				</label>
