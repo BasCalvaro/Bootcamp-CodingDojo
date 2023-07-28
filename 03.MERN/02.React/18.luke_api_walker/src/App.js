@@ -4,6 +4,7 @@ import { Routes, Route, Link } from "react-router-dom";
 
 import Form from "./components/Form";
 import Results from "./components/Results";
+import PersonDetail from "./components/personDetail"
 
 function App() {
 	// ---------------------------------------------
@@ -50,6 +51,8 @@ function App() {
 							/>
 						}
 					/>
+          <Route path="/people/:id" element={<PersonDetail />} />
+          <Route path="/:id" element={<PersonDetail />} />
 				</Routes>
 			</div>
 		</div>

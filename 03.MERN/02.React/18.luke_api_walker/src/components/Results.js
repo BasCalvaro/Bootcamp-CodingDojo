@@ -7,7 +7,12 @@ const Results = (props) => {
 	// ---------------------------------------------
 
 	const { starWarsElement, sendRequest, setSendRequest } = props;
-	const [results, setResults] = useState([]); // Cambiar data a results
+	const [homeworld, setHomeworld] = useState({});
+	const [results, setResults] = useState([]);
+
+	// ---------------------------------------------
+	// II) HANDLERS & AUX FUNCTIONS
+	// ---------------------------------------------
 
 	useEffect(() => {
 		if (sendRequest) {
@@ -16,7 +21,11 @@ const Results = (props) => {
 					`https://swapi.dev/api/${starWarsElement.field}/${starWarsElement.id}`
 				)
 				.then((res) => {
-					setResults([res.data]); // Agregamos el resultado a un arreglo para manejarlo mejor
+					setResults([res.data]);
+					return axios.get(res.data.homeworld);
+				})
+				.then((res) => {
+					setHomeworld(res.data);
 				})
 				.catch((err) => {
 					setResults([]);
@@ -25,10 +34,6 @@ const Results = (props) => {
 			setSendRequest(false);
 		}
 	}, [sendRequest, setSendRequest, starWarsElement]);
-
-	// ---------------------------------------------
-	// II) HANDLERS & AUX FUNCTIONS
-	// ---------------------------------------------
 
 	// ---------------------------------------------
 	// III) JSX
@@ -48,6 +53,7 @@ const Results = (props) => {
 									<li>Mass: {result.mass}</li>
 									<li>Birth year: {result.birth_year}</li>
 									<li>Gender: {result.gender}</li>
+									{homeworld.name && <li>Homeworld: {homeworld.name}</li>}
 								</>
 							) : starWarsElement.field === "starships" ? (
 								<>
@@ -83,7 +89,16 @@ const Results = (props) => {
 						</React.Fragment>
 					))
 				) : (
-					<li>No data available</li>
+					<div className="text-center m-5">
+						<h1>These aren't the droids you're looking for!</h1>
+						<img
+							className="img-fluid rounded"
+							src={
+								"http://cloudfront-us-east-1.images.arcpublishing.com/copesa/RBTAD2WRDNG5TOLLK7RIUZGV2E.jpg"
+							}
+							alt="Obi-Wan Kenobi"
+						/>
+					</div>
 				)}
 			</ul>
 		</div>
