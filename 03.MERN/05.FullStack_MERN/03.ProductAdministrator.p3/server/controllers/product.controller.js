@@ -59,4 +59,46 @@ module.exports = {
 				}
 			});
 	},
+	deleteProduct: (req, res) => {
+		let id = req.params.id;
+		if (!ObjectId.isValid(id))
+			return res
+				.status(400)
+				.json({ message: "id doesn't match the expected format" });
+		ProductModel.deleteOne({ _id: id })
+			.then(() => {
+				res.json({ success: true });
+			})
+			.catch((error) => {
+				res.status(500).json({ error: error });
+			});
+	},
+	editProduct: (req, res) => {
+		let id = req.params.id;
+		let data = req.body;
+		const updateOptions = {
+			new: true, // Return the updated document
+			runValidators: true, // Enforce validation during update
+		};
+		if (!ObjectId.isValid(id))
+			return res
+				.status(400)
+				.json({ message: "id doesn't match the expected format" });
+		ProductModel.findByIdAndUpdate({ _id: id }, data, updateOptions)
+			.then(() => {
+				res.json({ success: true });
+			})
+			.catch((error) => {
+				if (error instanceof mongoose.Error.ValidationError) {
+					let keys = Object.keys(error.errors);
+					let error_dict = {};
+					keys.map((key) => {
+						error_dict[key] = error.errors[key].message;
+					});
+					res.status(500).json({ error: error_dict });
+				} else {
+					res.status(500).json({ error: error });
+				}
+			});
+	},
 };

@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 
 import ProductForm from "../components/productForm";
 import ProductList from "../components/productList";
 
-function Main() {
+const Main = () => {
 	// ---------------------------------------------
 	// I) VARIABLES & HOOKS
 	// ---------------------------------------------
-	const [product, setProducts] = useState([]);
-	const [loaded, setLoaded] = useState(false);
-	useEffect(() => {
-		axios.get("http://localhost:8000/products/").then((res) => {
-			setProducts(res.data);
-			setLoaded(true);
-		});
-	}, []);
+
+	const [loading, setLoading] = useState(true);
+
 	// ---------------------------------------------
 	// II) HANDLERS & AUX FUNCTIONS
 	// ---------------------------------------------
@@ -26,11 +20,19 @@ function Main() {
 
 	return (
 		<div className="col p-3">
-			<ProductForm />
+			<ProductForm 
+				loading={loading} 
+				setLoading={setLoading}
+			/>
+			
 			<hr />
-			{loaded && <ProductList product={product} />}
+
+			<ProductList 
+				loading={loading} 
+				setLoading={setLoading}
+			/>
 		</div>
 	);
-}
+};
 
 export default Main;
